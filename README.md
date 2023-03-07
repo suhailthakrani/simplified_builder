@@ -11,11 +11,49 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-SimplifiedFutureBuilder is a Flutter widget that simplifies the process of building widgets that depend on the results of a Future. It provides a more streamlined and readable way to handle the different states of a Future (loading, success, and error).
+##SimplifiedBuilder
+
+The SimplifiedBuilder is a set of two classes in Dart, the SimplifiedFutureBuilder and SimplifiedStreamBuilder, that provide a simplified way to handle asynchronous operations in Flutter applications using the Future and Stream classes.
+
+The SimplifiedFutureBuilder and SimplifiedStreamBuilder classes extend the StatefulWidget class and take three parameters in their constructor: the future or stream, a builder function that is called when the future or stream is successfully completed with data, and an error builder function that is called if an error occurs during the future or stream execution.
+
+The classes then use the FutureBuilder and StreamBuilder widgets from the Flutter framework to asynchronously retrieve data and build the UI components based on the result of the asynchronous operation.
+
+The SimplifiedBuilder classes provide a simple and concise way to handle asynchronous operations in Flutter applications, reducing the amount of boilerplate code required to handle these operations and improving the readability and maintainability of the codebase.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Simplified and concise code: SimplifiedBuilder reduces the amount of boilerplate code needed to handle asynchronous operations, making code more readable, maintainable and easier to understand.
+
+- Easy to use: SimplifiedBuilder provides a simple and easy-to-use API, which requires only three parameters, making it accessible to developers of all skill levels.
+
+- Support for Futures and Streams: SimplifiedBuilder supports both Futures and Streams, making it a flexible solution for handling different types of asynchronous operations in Flutter applications.
+
+- Error handling: SimplifiedBuilder provides an error builder function that can be used to handle errors that occur during the asynchronous operation.
+
+- Flutter integration: SimplifiedBuilder uses the FutureBuilder and StreamBuilder widgets from the Flutter framework, which ensures that the UI is updated correctly when data is retrieved or when errors occur.
+
+Here is an example 1:
+```dart
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SimplifiedFutureBuilder(
+    /// You can add any Future Here.
+      future: getData(),
+      builder: (response) {
+        //Write your code here
+        return Text(response.body);
+      },
+      errorBuilder: (error) {
+        return Text('An error occurred: $error');
+      },
+    );
+  }
+}
+
+```
+
 
 ## Getting started
 
@@ -38,7 +76,8 @@ class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimplifiedFutureBuilder(
-      future: http.get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1')),
+      // You can add any Future here 
+      future: http.get(Uri.parse('URI')),
       builder: (data) {
         return Text(data.body);
       },
