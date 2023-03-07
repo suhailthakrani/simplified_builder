@@ -11,8 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+SimplifiedFutureBuilder is a Flutter widget that simplifies the process of building widgets that depend on the results of a Future. It provides a more streamlined and readable way to handle the different states of a Future (loading, success, and error).
 
 ## Features
 
@@ -20,20 +19,38 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the following dependency to your pubspec.yaml:
+
+dependencies:
+  simplified_future_builder: ^1.0.0
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+The SimplifiedFutureBuilder widget takes three required parameters:
+
+- future: A Future that resolves to the data that the widget will depend on.
+- builder: A function that takes the data returned by the future and returns a Widget to display.
+- errorBuilder: A function that takes an error and returns a Widget to display if the future fails.
+- loadingWidget: By default it provides CircularProgressIndicator(), but if user wants then he can other widget.
 
 ```dart
-const like = 'sample';
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SimplifiedFutureBuilder(
+      future: http.get(Uri.parse('https://jsonplaceholder.typicode.com/todos/1')),
+      builder: (data) {
+        return Text(data.body);
+      },
+      errorBuilder: (error) {
+        return Text('An error occurred: $error');
+      },
+    );
+  }
+}
+
 ```
 
-## Additional information
+## License
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This project is licensed under the MIT License - see the LICENSE file for details.
