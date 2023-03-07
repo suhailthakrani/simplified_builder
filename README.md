@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-##SimplifiedBuilder
+## SimplifiedBuilder
 
 The SimplifiedBuilder is a set of two classes in Dart, the SimplifiedFutureBuilder and SimplifiedStreamBuilder, that provide a simplified way to handle asynchronous operations in Flutter applications using the Future and Stream classes.
 
