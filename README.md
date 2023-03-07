@@ -92,4 +92,4 @@ class MyWidget extends StatelessWidget {
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the <a href="https://github.com/suhailthakrani/simplified_builder/blob/master/LICENSE" target="_blank"> LICENSE </a> file for details.
