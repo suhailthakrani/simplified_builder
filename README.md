@@ -13,13 +13,7 @@ and the Flutter guide for
 
 ## SimplifiedBuilder
 
-The SimplifiedBuilder is a set of two classes in Dart, the SimplifiedFutureBuilder and SimplifiedStreamBuilder, that provide a simplified way to handle asynchronous operations in Flutter applications using the Future and Stream classes.
-
-The SimplifiedFutureBuilder and SimplifiedStreamBuilder classes extend the StatefulWidget class and take three parameters in their constructor: the future or stream, a builder function that is called when the future or stream is successfully completed with data, and an error builder function that is called if an error occurs during the future or stream execution.
-
-The classes then use the FutureBuilder and StreamBuilder widgets from the Flutter framework to asynchronously retrieve data and build the UI components based on the result of the asynchronous operation.
-
-The SimplifiedBuilder classes provide a simple and concise way to handle asynchronous operations in Flutter applications, reducing the amount of boilerplate code required to handle these operations and improving the readability and maintainability of the codebase.
+The SimplifiedBuilder classes provide a simple and concise way to handle asynchronous operations in Flutter applications, reducing the amount of boilerplate code required to handle these operations and improving the readability and maintainability of the codebase, and to asynchronously retrieve data and build the UI components based on the result of the asynchronous operation.
 
 ## Features
 
