@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 class SimplifiedStreamBuilder<T> extends StatefulWidget {
-
   final Stream<T> stream;
   final Widget Function(T data) builder;
   final Widget Function(dynamic error) errorBuilder;
@@ -17,10 +16,12 @@ class SimplifiedStreamBuilder<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SimplifiedStreamBuilder> createState() => _SimplifiedStreamBuilderState();
+  State<SimplifiedStreamBuilder> createState() =>
+      _SimplifiedStreamBuilderState();
 }
 
-class _SimplifiedStreamBuilderState<T> extends State<SimplifiedStreamBuilder<T>> {
+class _SimplifiedStreamBuilderState<T>
+    extends State<SimplifiedStreamBuilder<T>> {
   late final Stream<T> _stream;
   late final Widget Function(T data) _builder;
   late final Widget Function(dynamic error) _errorBuilder;
@@ -33,24 +34,23 @@ class _SimplifiedStreamBuilderState<T> extends State<SimplifiedStreamBuilder<T>>
     _loadingWidget = widget.loadingWidget;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
       stream: _stream,
-      builder:(BuildContext context, AsyncSnapshot<T> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
         if (snapshot.hasData) {
           return _builder(snapshot.data as T);
         }
         if (snapshot.hasError) {
           return _errorBuilder(snapshot.error);
-        }
-        else {
+        } else {
           return Center(
             child: _loadingWidget,
           );
         }
       },
-      
     );
   }
 }

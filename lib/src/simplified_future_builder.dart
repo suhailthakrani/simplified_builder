@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 class SimplifiedFutureBuilder<T> extends StatefulWidget {
-
   final Future<T> future;
   final Widget Function(T data) builder;
   final Widget Function(dynamic error) errorBuilder;
@@ -13,19 +12,21 @@ class SimplifiedFutureBuilder<T> extends StatefulWidget {
     required this.future,
     required this.builder,
     required this.errorBuilder,
-    this.loadingWidget  = const CircularProgressIndicator(),
+    this.loadingWidget = const CircularProgressIndicator(),
   }) : super(key: key);
 
   @override
-  State<SimplifiedFutureBuilder> createState() => _SimplifiedFutureBuilderState();
+  State<SimplifiedFutureBuilder> createState() =>
+      _SimplifiedFutureBuilderState();
 }
 
-class _SimplifiedFutureBuilderState<T> extends State<SimplifiedFutureBuilder<T>> {
+class _SimplifiedFutureBuilderState<T>
+    extends State<SimplifiedFutureBuilder<T>> {
   late final Future<T> _future;
   late final Widget Function(T data) _builder;
   late final Widget Function(dynamic error) _errorBuilder;
   late final Widget _loadingWidget;
-  
+
   @override
   void initState() {
     _future = widget.future;
@@ -34,24 +35,23 @@ class _SimplifiedFutureBuilderState<T> extends State<SimplifiedFutureBuilder<T>>
     _loadingWidget = widget.loadingWidget;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<T>(
       future: _future,
-      builder:(BuildContext context, AsyncSnapshot<T> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
         if (snapshot.hasData) {
           return _builder(snapshot.data as T);
         }
         if (snapshot.hasError) {
           return _errorBuilder(snapshot.error);
-        }
-        else {
+        } else {
           return Center(
             child: _loadingWidget,
           );
         }
       },
-      
     );
   }
 }
