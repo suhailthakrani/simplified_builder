@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-The SimplifiedBuilder classes provide a simple and concise way to handle asynchronous operations in Flutter applications, reducing the amount of boilerplate code required to handle these operations and improving the readability and maintainability of the codebase, and to asynchronously retrieve data and build the UI components based on the result of the asynchronous operation.
+The SimplifiedBuilder provides a simple and concise way to handle asynchronous operations in Flutter applications, reducing the amount of boilerplate code required to handle these operations and improving the readability and maintainability of the codebase, and to asynchronously retrieve data and build the UI components based on the result of the asynchronous operation.
 
 ## Features
 
