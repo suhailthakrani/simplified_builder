@@ -28,26 +28,87 @@ and the Flutter guide for
 
 Here is an example 1:
 ```dart
-class MyWidget extends StatelessWidget {
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  Future<String> fetchData() async {
+    await Future.delayed(Duration(seconds: 2));
+    return 'Hello, World!';
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SimplifiedFutureBuilder(
-    /// You can add any Future Here.
-      future: getData(),
-      builder: (response) {
-        //Write your code here
-        return Text(response.body);
-      },
-      errorBuilder: (error) {
-        return Text('An error occurred: $error');
-      },
+    return MaterialApp(
+      title: 'SimplifiedFutureBuilder Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('SimplifiedFutureBuilder Example'),
+        ),
+        body: Center(
+          child: SimplifiedFutureBuilder<String>(
+            future: fetchData(),
+            builder: (data) {
+              return Text(data);
+            },
+            errorBuilder: (error) {
+              return Text('Error: $error');
+            },
+            loadingWidget: CircularProgressIndicator(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+Here is an example 1:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  Stream<int> countStream() async* {
+    int count = 0;
+    while (true) {
+      await Future.delayed(Duration(seconds: 1));
+      yield count++;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'SimplifiedStreamBuilder Example',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('SimplifiedStreamBuilder Example'),
+        ),
+        body: Center(
+          child: SimplifiedStreamBuilder<int>(
+            stream: countStream(),
+            builder: (data) {
+              return Text('Count: $data');
+            },
+            errorBuilder: (error) {
+              return Text('Error: $error');
+            },
+            loadingWidget: CircularProgressIndicator(),
+          ),
+        ),
+      ),
     );
   }
 }
 
 ```
-
-
 ## Getting started
 
 Add the following dependency to your pubspec.yaml:
