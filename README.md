@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
-Here is an example 1:
+Here is an example 2:
 
 ```dart
 import 'package:flutter/material.dart';
