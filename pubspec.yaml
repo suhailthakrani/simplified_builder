@@ -1,15 +1,16 @@
 name: simplified_builder
 description: This .
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/suhailthakrani/simplified_builder.git
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=2.19.2 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
