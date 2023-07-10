@@ -1,6 +1,8 @@
 name: simplified_builder
-description: This .
-version: 0.0.2
+description: |
+  The SimplifiedBuilder simplifies asynchronous operations in Flutter apps, reducing boilerplate code and enhancing codebase readability. Retrieve data asynchronously and build UI components based on the operation's result. Features include concise code, easy-to-use API, support for Futures and Streams, error handling, and Flutter integration.
+
+version: 0.0.3
 homepage: https://github.com/suhailthakrani/simplified_builder.git
 
 environment:

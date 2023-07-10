@@ -1,10 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+/// A widget that simplifies asynchronous future handling using a [FutureBuilder].
+///
+/// The [SimplifiedFutureBuilder] takes a [future] that represents the asynchronous operation,
+/// a [builder] function that is called when the future completes with data,
+/// an [errorBuilder] function that is called when the future completes with an error,
+/// and an optional [loadingWidget] to display while the future is loading.
 class SimplifiedFutureBuilder<T> extends StatefulWidget {
+  /// The future representing the asynchronous operation.
   final Future<T> future;
+
+  /// The builder function that is called when the future completes with data.
   final Widget Function(T data) builder;
+
+  /// The builder function that is called when the future completes with an error.
   final Widget Function(dynamic error) errorBuilder;
+
+  /// The widget to display while the future is loading.
   final Widget loadingWidget;
 
   const SimplifiedFutureBuilder({
@@ -16,8 +29,8 @@ class SimplifiedFutureBuilder<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SimplifiedFutureBuilder> createState() =>
-      _SimplifiedFutureBuilderState();
+  State<SimplifiedFutureBuilder<T>> createState() =>
+      _SimplifiedFutureBuilderState<T>();
 }
 
 class _SimplifiedFutureBuilderState<T>

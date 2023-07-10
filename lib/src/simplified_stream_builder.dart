@@ -1,10 +1,22 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+/// A widget that simplifies asynchronous stream handling using a [StreamBuilder].
+///
+/// The [SimplifiedStreamBuilder] takes a [stream] that represents the asynchronous stream,
+/// a [builder] function that is called when the stream emits data,
+/// an [errorBuilder] function that is called when the stream emits an error,
+/// and an optional [loadingWidget] to display while waiting for the stream data.
 class SimplifiedStreamBuilder<T> extends StatefulWidget {
+  /// The stream representing the asynchronous data flow.
   final Stream<T> stream;
+
+  /// The builder function that is called when the stream emits data.
   final Widget Function(T data) builder;
+
+  /// The builder function that is called when the stream emits an error.
   final Widget Function(dynamic error) errorBuilder;
+
+  /// The widget to display while waiting for the stream data.
   final Widget loadingWidget;
 
   const SimplifiedStreamBuilder({
@@ -16,8 +28,8 @@ class SimplifiedStreamBuilder<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SimplifiedStreamBuilder> createState() =>
-      _SimplifiedStreamBuilderState();
+  State<SimplifiedStreamBuilder<T>> createState() =>
+      _SimplifiedStreamBuilderState<T>();
 }
 
 class _SimplifiedStreamBuilderState<T>
@@ -26,6 +38,7 @@ class _SimplifiedStreamBuilderState<T>
   late final Widget Function(T data) _builder;
   late final Widget Function(dynamic error) _errorBuilder;
   late final Widget _loadingWidget;
+
   @override
   void initState() {
     _stream = widget.stream;
